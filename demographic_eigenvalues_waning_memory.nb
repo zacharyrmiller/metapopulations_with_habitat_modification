@@ -1,0 +1,458 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16209,        450]
+NotebookOptionsPosition[     14188,        410]
+NotebookOutlinePosition[     14588,        426]
+CellTagsIndexPosition[     14545,        423]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{3.840192698403412*^9},
+ CellLabel->"In[66]:=",ExpressionUUID->"39c41eac-ba43-4af6-8d6e-5f97e04ce800"],
+
+Cell["\<\
+We solve the system given in Eq. S82 to the find the 3 eigenvalues of J* not \
+associated with Q.\
+\>", "Text",
+ CellChangeTimes->{{3.840195434030199*^9, 
+  3.840195510128043*^9}},ExpressionUUID->"26165328-79ce-462a-88f1-\
+cd18147c12e2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"lambdas", " ", "=", " ", 
+  RowBox[{"l", " ", "/.", " ", 
+   RowBox[{"FullSimplify", "[", 
+    RowBox[{"Solve", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"a1", " ", "k", 
+          RowBox[{"(", 
+           RowBox[{"m", "-", 
+            RowBox[{"d", "/", "k"}]}], ")"}]}], "+", 
+         RowBox[{"c", " ", "a2"}]}], "\[Equal]", "l"}], " ", "&&", " ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"d", "/", "k"}], "-", 
+         RowBox[{"a1", " ", "k", " ", "m"}]}], "\[Equal]", 
+        RowBox[{"a1", " ", "l"}]}], " ", "&&", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "d"}], "/", "k"}], "+", 
+           RowBox[{"a1", " ", "d"}], "-", 
+           RowBox[{"c", " ", "a2"}]}], ")"}], " ", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"k", " ", "m"}], " ", "-", " ", "d"}], ")"}], " ", "/", 
+          "q"}]}], "\[Equal]", 
+        RowBox[{"a2", " ", "l"}]}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"a1", ",", "a2", ",", "l"}], "}"}]}], "]"}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.84019253986233*^9, 3.840192610486782*^9}},
+ CellLabel->"In[67]:=",ExpressionUUID->"df95a25d-0f7f-4d75-bd47-f6482805584d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"c", " ", "d", " ", "k"}], "-", 
+     RowBox[{
+      SuperscriptBox["k", "2"], " ", "m", " ", 
+      RowBox[{"(", 
+       RowBox[{"c", "+", "q"}], ")"}]}], "+", 
+     SqrtBox[
+      RowBox[{"k", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"4", " ", "d", " ", 
+          RowBox[{"(", 
+           RowBox[{"d", "-", 
+            RowBox[{"k", " ", "m"}]}], ")"}], " ", 
+          RowBox[{"(", 
+           RowBox[{"c", "-", "q"}], ")"}], " ", "q"}], "+", 
+         RowBox[{"k", " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"c", " ", 
+              RowBox[{"(", 
+               RowBox[{"d", "-", 
+                RowBox[{"k", " ", "m"}]}], ")"}]}], "+", 
+             RowBox[{"k", " ", "m", " ", "q"}]}], ")"}], "2"]}]}], ")"}]}]]}], 
+    RowBox[{"2", " ", "k", " ", "q"}]], ",", 
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "c"}], " ", "d", " ", "k"}], "+", 
+      RowBox[{
+       SuperscriptBox["k", "2"], " ", "m", " ", 
+       RowBox[{"(", 
+        RowBox[{"c", "+", "q"}], ")"}]}], "+", 
+      SqrtBox[
+       RowBox[{"k", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"4", " ", "d", " ", 
+           RowBox[{"(", 
+            RowBox[{"d", "-", 
+             RowBox[{"k", " ", "m"}]}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{"c", "-", "q"}], ")"}], " ", "q"}], "+", 
+          RowBox[{"k", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"c", " ", 
+               RowBox[{"(", 
+                RowBox[{"d", "-", 
+                 RowBox[{"k", " ", "m"}]}], ")"}]}], "+", 
+              RowBox[{"k", " ", "m", " ", "q"}]}], ")"}], "2"]}]}], 
+         ")"}]}]]}], 
+     RowBox[{"2", " ", "k", " ", "q"}]]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.840192658966833*^9, 3.840192720836286*^9},
+ CellLabel->"Out[67]=",ExpressionUUID->"406f21a9-45dc-4679-983b-1333c19a0550"]
+}, Open  ]],
+
+Cell["\<\
+As expected, one of these eigenvalues is always 0. We call the other two the \
+\[OpenCurlyDoubleQuote]demographic\[CloseCurlyDoubleQuote] eigenvalues of J*.\
+\
+\>", "Text",
+ CellChangeTimes->{{3.840195521793125*^9, 3.8401955574591923`*^9}, {
+  3.840195622756188*^9, 
+  3.840195633420642*^9}},ExpressionUUID->"10914bc9-59aa-499a-b4de-\
+61c23b75c6c8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"demographic", " ", "=", " ", 
+  RowBox[{"lambdas", "[", 
+   RowBox[{"[", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "3"}], "}"}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.840192810558012*^9, 3.840192823512714*^9}},
+ CellLabel->"In[68]:=",ExpressionUUID->"5c86e41d-5401-4d61-95b1-5b0db149a6af"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox[
+    RowBox[{
+     RowBox[{"c", " ", "d", " ", "k"}], "-", 
+     RowBox[{
+      SuperscriptBox["k", "2"], " ", "m", " ", 
+      RowBox[{"(", 
+       RowBox[{"c", "+", "q"}], ")"}]}], "+", 
+     SqrtBox[
+      RowBox[{"k", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"4", " ", "d", " ", 
+          RowBox[{"(", 
+           RowBox[{"d", "-", 
+            RowBox[{"k", " ", "m"}]}], ")"}], " ", 
+          RowBox[{"(", 
+           RowBox[{"c", "-", "q"}], ")"}], " ", "q"}], "+", 
+         RowBox[{"k", " ", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"c", " ", 
+              RowBox[{"(", 
+               RowBox[{"d", "-", 
+                RowBox[{"k", " ", "m"}]}], ")"}]}], "+", 
+             RowBox[{"k", " ", "m", " ", "q"}]}], ")"}], "2"]}]}], ")"}]}]]}], 
+    RowBox[{"2", " ", "k", " ", "q"}]], ",", 
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "c"}], " ", "d", " ", "k"}], "+", 
+      RowBox[{
+       SuperscriptBox["k", "2"], " ", "m", " ", 
+       RowBox[{"(", 
+        RowBox[{"c", "+", "q"}], ")"}]}], "+", 
+      SqrtBox[
+       RowBox[{"k", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"4", " ", "d", " ", 
+           RowBox[{"(", 
+            RowBox[{"d", "-", 
+             RowBox[{"k", " ", "m"}]}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{"c", "-", "q"}], ")"}], " ", "q"}], "+", 
+          RowBox[{"k", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"c", " ", 
+               RowBox[{"(", 
+                RowBox[{"d", "-", 
+                 RowBox[{"k", " ", "m"}]}], ")"}]}], "+", 
+              RowBox[{"k", " ", "m", " ", "q"}]}], ")"}], "2"]}]}], 
+         ")"}]}]]}], 
+     RowBox[{"2", " ", "k", " ", "q"}]]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.840192827516307*^9},
+ CellLabel->"Out[68]=",ExpressionUUID->"1c32eaac-4880-4c13-b9d3-d6f0adce6dc4"]
+}, Open  ]],
+
+Cell["\<\
+The first of these eigenvalues is always larger than the second (verified \
+below). This eigenvalue controls the stability of J* (when P has exactly one \
+positive eigenvalue).\
+\>", "Text",
+ CellChangeTimes->{{3.840195653462675*^9, 
+  3.840195702147285*^9}},ExpressionUUID->"39f428f3-a62b-4479-a471-\
+c532ca44f684"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"largerLambda", " ", "=", " ", 
+  RowBox[{"demographic", "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Reduce", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Re", "[", "largerLambda", "]"}], " ", "<", " ", 
+      RowBox[{"Re", "[", 
+       RowBox[{"demographic", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ",", " ", 
+     RowBox[{"k", " ", ">", " ", "0"}], ",", " ", 
+     RowBox[{"q", " ", ">", " ", "0"}]}], "}"}], ",", " ", "k", ",", " ", 
+   "Reals"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.840192842814061*^9, 3.840192864235759*^9}, {
+  3.8401928992463913`*^9, 3.840192922538993*^9}, {3.840192955764924*^9, 
+  3.840192963812996*^9}, {3.840193007987146*^9, 3.8401930455741243`*^9}, {
+  3.840193276193527*^9, 3.840193284547937*^9}, {3.840193325853962*^9, 
+  3.84019334503268*^9}, {3.840193375891686*^9, 3.840193441356934*^9}, {
+  3.84019348101725*^9, 3.840193635927353*^9}, {3.8401936955064487`*^9, 
+  3.840193711917616*^9}, {3.840193973600493*^9, 3.8401939864126453`*^9}, {
+  3.840194074330841*^9, 3.840194079450921*^9}, {3.8401941165550327`*^9, 
+  3.8401941242059097`*^9}, {3.840194322731798*^9, 3.840194324758953*^9}, {
+  3.840194876809285*^9, 3.84019490298505*^9}},
+ CellLabel->
+  "In[119]:=",ExpressionUUID->"c70b2395-6c3a-4425-b766-167944807c1a"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   RowBox[{"c", " ", "d", " ", "k"}], "-", 
+   RowBox[{
+    SuperscriptBox["k", "2"], " ", "m", " ", 
+    RowBox[{"(", 
+     RowBox[{"c", "+", "q"}], ")"}]}], "+", 
+   SqrtBox[
+    RowBox[{"k", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"4", " ", "d", " ", 
+        RowBox[{"(", 
+         RowBox[{"d", "-", 
+          RowBox[{"k", " ", "m"}]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{"c", "-", "q"}], ")"}], " ", "q"}], "+", 
+       RowBox[{"k", " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"c", " ", 
+            RowBox[{"(", 
+             RowBox[{"d", "-", 
+              RowBox[{"k", " ", "m"}]}], ")"}]}], "+", 
+           RowBox[{"k", " ", "m", " ", "q"}]}], ")"}], "2"]}]}], ")"}]}]]}], 
+  RowBox[{"2", " ", "k", " ", "q"}]]], "Output",
+ CellChangeTimes->{
+  3.8401929260215397`*^9, 3.840192973971242*^9, 3.840193012772472*^9, 
+   3.840193048398631*^9, {3.8401933681123323`*^9, 3.8401934442672443`*^9}, {
+   3.840193496282905*^9, 3.840193524584465*^9}, {3.840193564625266*^9, 
+   3.840193639111536*^9}, {3.8401936993762913`*^9, 3.840193715097005*^9}, 
+   3.840193990986032*^9, 3.840194082335211*^9, {3.840194120476054*^9, 
+   3.84019412686369*^9}, 3.840194327417017*^9, {3.840194879748674*^9, 
+   3.840194905681199*^9}},
+ CellLabel->
+  "Out[119]=",ExpressionUUID->"2eff5af3-2ef9-4a28-a627-46305b25f4e9"],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{
+  3.8401929260215397`*^9, 3.840192973971242*^9, 3.840193012772472*^9, 
+   3.840193048398631*^9, {3.8401933681123323`*^9, 3.8401934442672443`*^9}, {
+   3.840193496282905*^9, 3.840193524584465*^9}, {3.840193564625266*^9, 
+   3.840193639111536*^9}, {3.8401936993762913`*^9, 3.840193715097005*^9}, 
+   3.840193990986032*^9, 3.840194082335211*^9, {3.840194120476054*^9, 
+   3.84019412686369*^9}, 3.840194327417017*^9, {3.840194879748674*^9, 
+   3.8401949058426437`*^9}},
+ CellLabel->
+  "Out[120]=",ExpressionUUID->"3ba136ad-840b-4379-8a83-594f7249bb65"]
+}, Open  ]],
+
+Cell["\<\
+First, we verify that the equilibrium associated with the smaller value of k \
+(so k < (1/2) (d/m + q/m - 1), by Eq. S74) is never stable when feasible \
+(i.e. when k > d/m, which can only happen when d + m > q). \
+\>", "Text",
+ CellChangeTimes->{{3.8401957233981752`*^9, 3.8401958834685993`*^9}, {
+  3.840198241121182*^9, 
+  3.840198243324147*^9}},ExpressionUUID->"4f4c4a88-8a7f-411f-bcdc-\
+6b117409dd4c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Reduce", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Re", "[", "largerLambda", "]"}], " ", "<", " ", "0"}], ",", 
+     " ", 
+     RowBox[{"k", " ", ">", " ", 
+      RowBox[{"d", "/", "m"}]}], ",", " ", 
+     RowBox[{"k", " ", "<", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"1", "/", "2"}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"d", "/", "m"}], " ", "+", " ", 
+         RowBox[{"q", "/", "m"}], " ", "-", " ", "1"}], ")"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"d", " ", "+", " ", "m"}], ")"}], " ", ">", " ", "q"}], ",", 
+     "  ", 
+     RowBox[{"d", " ", ">", " ", "0"}], ",", " ", 
+     RowBox[{"m", " ", ">", " ", "0"}], ",", " ", 
+     RowBox[{"c", " ", ">", " ", "0"}], ",", " ", 
+     RowBox[{"q", " ", ">", " ", "0"}]}], "}"}], ",", " ", "k", ",", " ", 
+   "Reals"}], "]"}]], "Input",
+ CellChangeTimes->{{3.840194151347954*^9, 3.840194193477504*^9}},
+ CellLabel->
+  "In[112]:=",ExpressionUUID->"db31bbd8-9093-4d8b-908d-ad63904b35d3"],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{3.8401943123313704`*^9},
+ CellLabel->
+  "Out[112]=",ExpressionUUID->"bf5236b6-2388-4b19-9e7a-a3ee32440d65"]
+}, Open  ]],
+
+Cell["\<\
+Next, we verify that the equilibrium associated with the larger value of k \
+(so k > (1/2) (d/m + q/m - 1), by Eq. S74) is never unstable when it is the \
+unique feasible equilibrium (i.e. when c > m).\
+\>", "Text",
+ CellChangeTimes->{{3.8401958977712*^9, 3.840195944604261*^9}, {
+  3.840198255615473*^9, 
+  3.840198263492241*^9}},ExpressionUUID->"11c98a02-f008-440d-9319-\
+82c4838cc052"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Reduce", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Re", "[", "largerLambda", "]"}], " ", ">", " ", "0"}], ",", 
+     " ", 
+     RowBox[{"k", " ", ">", " ", 
+      RowBox[{"d", "/", "m"}]}], ",", " ", 
+     RowBox[{"k", " ", ">", " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"1", "/", "2"}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"d", "/", "m"}], " ", "+", " ", 
+         RowBox[{"q", "/", "m"}], " ", "-", " ", "1"}], ")"}]}]}], ",", " ", 
+     RowBox[{"c", ">", "m"}], ",", "  ", 
+     RowBox[{"d", " ", ">", " ", "0"}], ",", " ", 
+     RowBox[{"m", " ", ">", " ", "0"}], ",", " ", 
+     RowBox[{"c", " ", ">", " ", "0"}], ",", " ", 
+     RowBox[{"q", " ", ">", " ", "0"}]}], "}"}], ",", " ", "k", ",", " ", 
+   "Reals"}], "]"}]], "Input",
+ CellChangeTimes->{{3.840194946276739*^9, 3.840194989651902*^9}},
+ CellLabel->
+  "In[121]:=",ExpressionUUID->"0e2f6b22-66e8-471b-80ce-93dbec10d06e"],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{3.8401951542449636`*^9},
+ CellLabel->
+  "Out[121]=",ExpressionUUID->"c18b057e-1e16-4c54-8ffd-ecae108b06d5"]
+}, Open  ]]
+},
+WindowSize->{1126.5, 614.25},
+WindowMargins->{{81, Automatic}, {48, Automatic}},
+FrontEndVersion->"12.2 for Linux x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"831ee52b-40d0-4718-999e-987b475138d7"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 197, 3, 29, "Input",ExpressionUUID->"39c41eac-ba43-4af6-8d6e-5f97e04ce800"],
+Cell[758, 25, 247, 6, 35, "Text",ExpressionUUID->"26165328-79ce-462a-88f1-cd18147c12e2"],
+Cell[CellGroupData[{
+Cell[1030, 35, 1304, 37, 29, "Input",ExpressionUUID->"df95a25d-0f7f-4d75-bd47-f6482805584d"],
+Cell[2337, 74, 2061, 61, 58, "Output",ExpressionUUID->"406f21a9-45dc-4679-983b-1333c19a0550"]
+}, Open  ]],
+Cell[4413, 138, 359, 8, 35, "Text",ExpressionUUID->"10914bc9-59aa-499a-b4de-61c23b75c6c8"],
+Cell[CellGroupData[{
+Cell[4797, 150, 323, 7, 29, "Input",ExpressionUUID->"5c86e41d-5401-4d61-95b1-5b0db149a6af"],
+Cell[5123, 159, 2029, 61, 58, "Output",ExpressionUUID->"1c32eaac-4880-4c13-b9d3-d6f0adce6dc4"]
+}, Open  ]],
+Cell[7167, 223, 326, 7, 58, "Text",ExpressionUUID->"39f428f3-a62b-4479-a471-c532ca44f684"],
+Cell[CellGroupData[{
+Cell[7518, 234, 1354, 27, 51, "Input",ExpressionUUID->"c70b2395-6c3a-4425-b766-167944807c1a"],
+Cell[8875, 263, 1419, 37, 58, "Output",ExpressionUUID->"2eff5af3-2ef9-4a28-a627-46305b25f4e9"],
+Cell[10297, 302, 601, 10, 33, "Output",ExpressionUUID->"3ba136ad-840b-4379-8a83-594f7249bb65"]
+}, Open  ]],
+Cell[10913, 315, 416, 8, 58, "Text",ExpressionUUID->"4f4c4a88-8a7f-411f-bcdc-6b117409dd4c"],
+Cell[CellGroupData[{
+Cell[11354, 327, 1066, 29, 51, "Input",ExpressionUUID->"db31bbd8-9093-4d8b-908d-ad63904b35d3"],
+Cell[12423, 358, 159, 3, 33, "Output",ExpressionUUID->"bf5236b6-2388-4b19-9e7a-a3ee32440d65"]
+}, Open  ]],
+Cell[12597, 364, 398, 8, 58, "Text",ExpressionUUID->"11c98a02-f008-440d-9319-82c4838cc052"],
+Cell[CellGroupData[{
+Cell[13020, 376, 990, 26, 29, "Input",ExpressionUUID->"0e2f6b22-66e8-471b-80ce-93dbec10d06e"],
+Cell[14013, 404, 159, 3, 33, "Output",ExpressionUUID->"c18b057e-1e16-4c54-8ffd-ecae108b06d5"]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,6 +1,8 @@
 # Functions to simulate, analyze, and plot model dynamics 
 # zachmiller@uchicago.edu
 
+library("scales")
+
 THRESH <- 10^-6 # global threshold frequency for extinction
 
 ##### Functions for model dynamics #####
@@ -345,4 +347,17 @@ build_cyclic_P <- function(n, c) {
   P <- c * P
   
   return(P)
+}
+
+custom_sqrt(x) <- function(x){
+  
+  # Evaluate sqrt if input is positive, return 0 otherwise (for computing real parts of eigenvalues)
+  
+  if (x > 0){
+    out <- sqrt(x)
+  }else{
+    out <- 0
+  }
+  
+  return(out)
 }

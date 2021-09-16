@@ -346,7 +346,7 @@ show(p4)
 m_vals <- c(0.25, 0.5, 1) # values of common local extinction rate
 d_vals <- seq(0.01, 1, length.out = 300) # values of common memory decay rate
 c_vals <- seq(0.01, 1.5, length.out = 300) # values of common colonization rate for naive patches
-q_vals <- c(0.25, 0.5, 1) # values of q = 1^T P^{-1} 1
+q_vals <- c(1, 2, 4) # values of q = 1/(1^T P^{-1} 1)
 
 # pre-allocate matrix for results at all parameter combinations
 results <- matrix(nrow = length(m_vals)*length(d_vals)*length(c_vals)*length(q_vals), 
@@ -362,17 +362,23 @@ for(m in m_vals) {
         i <- i + 1
         
         # compute k values in two parts
-        a <- d/m + 1/(m * q) - 1 # shared part of roots
-        b <- sqrt((1 - d/m - 1/(m*q))^2 - 4 * (d/m) * (1/(c*q) - 1)) # discriminant part
+        a <- d/m + q/m - 1 # shared part of roots
+        b <- sqrt((1 - d/m - q/m)^2 - 4 * (d/m) * (q/c - 1)) # discriminant part
         
         k1 <- (a + b) / 2
         k2 <- (a - b) / 2
         
         feas_thresh <- d / m # threshold for feasiblity (k > d/m)
-        stable1 <- if(m / (d + m) < c * q) TRUE else k1 > sqrt((d * (1 - c * q)) / (m * c * q)) # check if equilibrium associated with k1 
-                                                                                                # is stable
-        stable2 <- if(m / (d + m) < c * q) TRUE else k2 > sqrt((d * (1 - c * q)) / (m * c * q)) # check if equilibrium associated with k2
-                                                                                                # is stable (this should never happen)
+
+        # check stability (larger demographic eigenvalue; Eq. S82) for both equilibria 
+        # when and equilibrium is not feasible, these values are not meaningful (we will ignore them below)
+        if(!is.nan(k1)){stable1 <- ((c/q) * d - k1 * m * (1 + (c/q)) +
+                      custom_sqrt((4 * d * (d/k1 - m) * (c/q - 1) + (k1 * m * (1 - c/q) + (c/q) * d)^2))) / 2 < 0
+        }else{stable1 <- NA}
+        if(!is.nan(k2)){stable2 <- ((c/q) * d - k2 * m * (1 + (c/q)) +
+                      custom_sqrt((4 * d * (d/k2 - m) * (c/q - 1) + (k2 * m * (1 - c/q) + (c/q) * d)^2))) / 2 < 0
+        }else{stable2 <- NA}
+        
         results[i, ] <- c(m, d, c, q, k1, k2, feas_thresh, stable1, stable2)
       }
     }
@@ -403,12 +409,12 @@ pa <- results %>% # classify outcome at each parameter combination
                          "not feasible")) %>% # if k1 not feasible (k2 must be unfeasible also)
   ggplot() + 
   aes(x = d, y = c) + # plot outcomes across parameter spaces
-  geom_tile(aes(fill = status)) + 
-  geom_point(data = data.frame(m = "m = 0.5", q = "q = 0.5", d = 0.1, c = 0.25), fill = NA, pch = 5) + # indicate parameter
+  geom_raster(aes(fill = status)) + 
+  geom_point(data = data.frame(m = "m = 0.5", q = "q = 2", d = 0.1, c = 0.25), fill = NA, pch = 5) + # indicate parameter
                                                                                                        # used for panels B and C
-  geom_text(data = data.frame(m = "m = 1", q = "q = 0.25", d = 0.25, c = 0.75), aes(label = "bistable")) + 
-  geom_text(data = data.frame(m = "m = 1", q = "q = 0.25", d = 0.75, c = 0.25), aes(label = "unfeasible")) + # label colors 
-  geom_text(data = data.frame(m = "m = 1", q = "q = 0.25", d = 0.5, c = 1.25), aes(label = "unique stable")) + 
+  geom_text(data = data.frame(m = "m = 1", q = "q = 4", d = 0.25, c = 0.75), aes(label = "bistable")) + 
+  geom_text(data = data.frame(m = "m = 1", q = "q = 4", d = 0.7, c = 0.25), aes(label = "unfeasible")) + # label colors 
+  geom_text(data = data.frame(m = "m = 1", q = "q = 4", d = 0.5, c = 1.25), aes(label = "unique stable")) + 
   facet_grid(m ~ q) + 
   theme_classic() + 
   scale_fill_manual(values = c( "#56B4E9", "#D55E00", "#0072B2", "#CC79A7")) + 
