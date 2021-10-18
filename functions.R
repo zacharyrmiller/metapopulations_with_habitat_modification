@@ -349,7 +349,7 @@ build_cyclic_P <- function(n, c) {
   return(P)
 }
 
-custom_sqrt(x) <- function(x){
+custom_sqrt <- function(x){
   
   # Evaluate sqrt if input is positive, return 0 otherwise (for computing real parts of eigenvalues)
   
