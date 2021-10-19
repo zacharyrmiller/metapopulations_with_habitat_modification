@@ -219,6 +219,7 @@ for(i in 1:(2 * n_mats)) {
   # find feasible P stable at LOW (first 1:n_mats) or HIGH (second 1:n_mats) m 
   if (i <= n_mats) scale_m <- eps else scale_m <- 1 - eps
   P <- sample_P(n, m = "proportion", eps = scale_m)$P
+  max_m <- 1 / sum(solve(P))
   
   # loop over m values and classify long-term dynamics
   for(j in 1:n_ms) {
