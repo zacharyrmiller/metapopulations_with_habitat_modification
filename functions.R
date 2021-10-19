@@ -155,6 +155,8 @@ sample_P <- function(n, check.feas = TRUE, check.stab = TRUE, symmetric = FALSE,
   # an n x n matrix P satisfying input constraints, and logicals feas (does the output have feasible equilibrium)
   #     and stab (does the output have stable equilibrium)
   
+  use_proportions <- (m == "proportion")
+  
   success <- FALSE
   while(!success) { # sample until matrix with desired properties is found
     
@@ -166,8 +168,8 @@ sample_P <- function(n, check.feas = TRUE, check.stab = TRUE, symmetric = FALSE,
     diag(P) <- scale.diag * diag(P) # re-scale diagonal (no re-scaling by default)
     
     # if m = "proportion", compute max_m and then m as eps * max_m
-    if (m == "proportion") {
-      max_m <- 1 / sum(rowSums(solve(P)))
+    if (use_proportions) {
+      max_m <- 1 / sum(solve(P))
       m <- eps * max_m
     }
     
